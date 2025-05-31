@@ -1,0 +1,30 @@
+:root {
+  font-size: 62.5%;
+  }
+
+body {
+  font-size: 1.6rem;
+  color: var(--text);
+  font-family: var(--font-family);
+  background: var(--background);
+  }
+
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  color: var(--text);
+  text-decoration: none;
+}
