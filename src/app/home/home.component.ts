@@ -2,10 +2,9 @@ import { Component } from '@angular/core';
 declare var bootstrap: any;
 @Component({
   selector: 'app-home',
-  standalone: true,
+  standalone: false,
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss',
-  imports: [CommonModule, FormsModule]
+  styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   bags = [
