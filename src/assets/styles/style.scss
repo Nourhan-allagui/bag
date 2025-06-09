@@ -1,6 +1,11 @@
-@import 'variables';
-@import 'rest';
-@import 'classes';
-@import 'media-queries';
-@import 'utils';
-@import 'base';
+// general
+@forward "variables";
+@forward "rest";
+@forward "classes";
+@forward "media-queries";
+@forward "utils";
+@forward "base";
+
+
+// components
+@forward "components/navbarStyle";
