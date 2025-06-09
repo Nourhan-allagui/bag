@@ -1,0 +1,146 @@
+.home-container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  justify-items: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  .card-size {
+    margin: 40px 0;
+    width: 80%;
+    height: 100%;
+
+    img {
+      height: 900px;
+      border-radius: 25px;
+    }
+  }
+
+  .cards-size {
+    width: 80%;
+    height: 100%;
+    margin: 40px 0;
+
+    img {
+      width: 500px;
+      height: 300px;
+      border-radius: 25px;
+    }
+    .card {
+      margin: 0 20px;
+      border-radius: 25px;
+      .card-body {
+        text-align: center;
+        .btns {
+          color: #ffffff;
+          background: transparent;
+        }
+      }
+      &:hover {
+        .btns {
+          border: none;
+          background: lightgray;
+
+          &:hover {
+            background: rgba(114, 7, 7, 0.25);
+          }
+          &:active{
+            color: #333333;
+            border: 0 solid transparent;
+            background: rgba(114, 7, 7, 0.25);
+          }
+        }
+      }
+    }
+  }
+  .carts-thirds {
+    width: 80%;
+    height: 100%;
+    margin: 15px 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      li{
+        a{
+          color: #333333;
+        }
+        .active{
+          color: firebrick;
+          text-decoration: underline;
+        }
+      }
+    }
+    .cards-fourth {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-end;
+      justify-content: center;
+    p {
+      a {
+        font-size: 1.2rem;
+        color: #333333;
+        background: transparent;
+        border-color: lightgray;
+        margin: 0 5px;
+      }
+    }
+    }
+  }
+  .collapse {
+    width: 80%;
+    height: auto;
+    margin: 10px 0;
+    .card-body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .btn-cards {
+        background: rgba(114, 7, 7, 0.35);
+        color: #333333;
+        width: 100px;
+      }
+    }
+  }
+  .cards-fifith {
+    width: 80%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    img {
+      width: 500px;
+      height: 500px;
+    }
+  }
+  .more-button {
+    font-size: 1.2rem;
+    width: 100px;
+    height: 30px;
+    margin: 10px 0;
+    border-radius: 10px;
+  }
+
+  .modal-body {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    .images-display {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    .bags-details {
+      margin: 30px 0;
+
+    }
+  }
+}
