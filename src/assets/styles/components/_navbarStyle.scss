@@ -1,0 +1,67 @@
+.strong {
+  font-weight: 700;
+  font-size: 2.5rem;
+  color: #545454 !important;
+  font-family: "Fira Code Light", serif;
+}
+.search-form{
+  height:40px;
+  display:inline-block;
+  border-radius:20px;
+  background:transparent;
+  margin:20px auto;
+  line-height:40px;
+  font-size:18px;
+  box-shadow:0 0 3px #111;
+  overflow:hidden;
+  position:relative;
+  width:auto;
+  margin-left: 10px;
+}
+
+.search-form span{
+  width:40px;
+  height:40px;
+  display:inline-block;
+  text-align:center;
+}
+span.slens{
+  position:absolute;
+  z-index:1;
+}
+input#s{
+  width:0;
+  margin:0 0;
+  padding:0 0 0 40px;
+  border:none;
+  height:40px;
+  vertical-align:top;
+  position:relative;
+  z-index:2;
+  background:transparent;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+}
+
+input#s:focus{
+  outline:none;
+  width:180px;
+}
+
+
+.slens i{
+  color:#aaa;
+}
+
+input#s + .sclose{
+  width:0;
+}
+
+input#s:focus + .sclose{
+  width:40px;
+  cursor:pointer;
+}
+
+.sclose i{
+  color: #9d0000;
+}

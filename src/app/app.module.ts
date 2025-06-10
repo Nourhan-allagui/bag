@@ -3,6 +3,7 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {NavbarComponent} from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
@@ -10,6 +11,7 @@ import {CommonModule} from '@angular/common';
 @NgModule({
   declarations: [
     AppComponent,
+    NavbarComponent,
     HomeComponent,
 
   ],
