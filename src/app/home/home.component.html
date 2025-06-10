@@ -1,23 +1,22 @@
 <div class="home-container">
+
   <div id="carouselExampleDark" class="carousel carousel-dark slide card-size" data-bs-ride="carousel">
     <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      <button *ngFor="let img of pubImgBags; let i = index"
+              type="button"
+              data-bs-target="#carouselExampleDark"
+              [attr.data-bs-slide-to]="i"
+              [class.active]="i === 0"
+              [attr.aria-current]="i === 0 ? 'true' : null"
+              [attr.aria-label]="'Slide ' + (i + 1)">
+      </button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-        <img src="https://cdn.mos.cms.futurecdn.net/v2/t:0,l:0,cw:3000,ch:1687,q:80,w:3000/z37mwDVckwJURH4Ho5KRYW.jpeg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-        <img src="https://www.kalkstore.com/cdn/shop/articles/KL_WEB_BLOG_PORTADA_4420x2400_df689793-0c08-4d64-8872-7b415597a5ac.jpg?v=1654701916&width=1500" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
-        </div>
-      </div>
-      <div class="carousel-item">
-        <img src="https://images-cdn.ubuy.co.in/6354bd1507ec38697d3f56e0-womens-handbags-and-purses-fashion-top.jpg" class="d-block w-100" alt="...">
+      <div *ngFor="let img of pubImgBags; let i = index"
+           class="carousel-item"
+           [class.active]="i === 0"
+           [attr.data-bs-interval]="10000">
+        <img [src]="img" class="d-block w-100" alt="Bags image">
         <div class="carousel-caption d-none d-md-block">
         </div>
       </div>
@@ -33,125 +32,82 @@
   </div>
 
   <div class="card-group cards-size">
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMW7VwE4hiA-F3dZpmafUui0jh92KU-u-VrQ&s" class="card-img-top" alt="...">
+    <div class="card" *ngFor="let detail of genderType">
+      <img [src]="detail.images" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">Women</h5>
-        <p class="card-text">Discover our high-quality, stunning women's bag—perfect for this season</p>
-        <a href="#" class="btn btns">SHOP NOW</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvF_zdxA4pfdsSgIF9BiqtIcqIx0XJLS8xw&s" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Men</h5>
-        <p class="card-text">Discover our high-quality, stunning men's bag—perfect for this season</p>
-        <a href="#" class="btn btns">SHOP NOW</a>
-      </div>
-    </div>
-    <div class="card">
-      <img src="https://www.humanium.org/fr/wp-content/uploads/2025/05/shutterstock_2267902633-scaled.jpg" class="card-img-top" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Children</h5>
-        <p class="card-text">Discover our high-quality, stunning children's bag—perfect for this season</p>
-        <a href="#" class="btn btns">SHOP NOW</a>
+        <h5 class="card-title">{{detail.name}}</h5>
+        <p class="card-text">{{detail.description}}</p>
+        <a href="#" class="btn btns">{{detail.buttons}}</a>
       </div>
     </div>
   </div>
+
   <div class="carts-thirds">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#">All Products</a>
+        <a class="nav-link active" aria-current="page" href="#" (click)="resetFilter()">All Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Women</a>
+        <a class="nav-link" (click)="filterByGender('Women')">Women</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Men</a>
+        <a class="nav-link" (click)="filterByGender('Men')">Men</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Children</a>
+        <a class="nav-link" (click)="filterByGender('Children')">Children</a>
       </li>
     </ul>
+
     <div class="cards-fourth">
     <p>
       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" data-bs-target="#collapseExample2">
-        <i class="fa-solid fa-filter"></i> Filter
-      </a>
-      <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2" data-bs-target="#collapseExample1">
         <i class="fa-solid fa-magnifying-glass"></i> Search
+      </a>
+      <a class="btn btn-primary disabled" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2" data-bs-target="#collapseExample1">
+        <i class="fa-solid fa-filter"></i> Filter
       </a>
     </p>
     </div>
   </div>
   <div class="collapse" id="collapseExample1">
     <div class="card card-body">
-      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
+       soon !
       <button class="btn btn-cards" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-        Button with data-bs-target
+        wait !
       </button>
     </div>
   </div>
   <div class="collapse" id="collapseExample2">
     <div class="card card-body">
-      Some placeholder content for the collapse component. This panel is hidden by default but revealed when the user activates the relevant trigger.
-      <button class="btn btn-cards" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
-        Button with data-bs-target
-      </button>
+      <div class="input-group">
+        <input type="text"
+               class="form-control searchInput"
+               placeholder="Search Bags..."
+               [(ngModel)]="searchTerm"
+               (input)="applyFilters()">
+        <button class="btn btn-cards" type="button" (click)="clearSearch()">
+          CLEAN
+        </button>
+        <button class="btn btn-cards" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample2" aria-expanded="false" aria-controls="collapseExample2">
+          OK
+        </button>
+      </div>
     </div>
   </div>
-  <div class="cards-fifith">
-   <!-- <div class="row row-cols-1 row-cols-md-3 g-4">
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://m.media-amazon.com/images/I/81BCwzfdf-L._AC_UY1000_.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://static.oysho.net/6/static2/itxwebstandard/images/pespeciales/oysho/filtros092023/bolsos/bolsasDeportivas.jpg?t=20250604194005" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a short card.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiebTrHv65gYUEa1fW1OtDWmkETj8UXxK7ug&s" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
-    <div class="row">
-      <div *ngFor="let bag of bags" class="col-md-3 mb-3">
-        <div class="card h-100" (click)="openModal(bag)" style="cursor: pointer;">
-          <img [src]="bag.images[0]" class="card-img-top" alt="{{ bag.name }}">
-          <div class="card-body">
-            <h5 class="card-title">{{ bag.name }}</h5>
-            <p class="card-text">{{ bag.description }}</p>
-            <p class="card-text">${{ bag.price }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
+  <div class="cards-fifith">
+      <div class="row">
+        <div *ngFor="let bag of filteredBags" class="col-md-4 mb-3">
+          <div class="card" (click)="openModal(bag)" style="cursor: pointer;">
+            <img [src]="bag.images[0]" class="card-img-top" alt="{{ bag.name }}">
+            <div class="card-body">
+              <h5 class="card-title">{{ bag.name }}</h5>
+              <p class="card-text">{{ bag.description }}</p>
+              <p class="card-text">${{ bag.price }}</p>
+            </div>
+          </div>
+        </div>
+    </div>
     <div class="modal fade" id="bagModal" tabindex="-1">
       <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content p-3">
@@ -167,7 +123,8 @@
                    [src]="thumb"
                    class="img-thumbnail"
                    style="width: 100px; height: 100px ; cursor: pointer;"
-                   (click)="changeImage(thumb)">
+                   (click)="changeImage(thumb)"
+              alt="bags image">
             </div>
             </div>
             <div class="bags-details">
