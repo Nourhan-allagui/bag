@@ -7,13 +7,14 @@ import {NavbarComponent} from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-
+    FooterComponent
   ],
   imports: [
     CommonModule,
