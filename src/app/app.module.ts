@@ -8,10 +8,12 @@ import { HomeComponent } from './home/home.component';
 import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ShopComponent,
     NavbarComponent,
     HomeComponent,
     FooterComponent
