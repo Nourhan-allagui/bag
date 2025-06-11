@@ -76,9 +76,18 @@
   display: none;
 }
 .navbar-nav .nav-link.active {
-  color: #e91e63 !important;
+  color: #ffffff !important;
   font-weight: 600;
+  text-shadow: 2px 2px 2px #720707;
+  text-decoration: underline;
 }
+
+.navbar-light .navbar-nav .nav-link {
+  color: #333333;
+  font-weight: 500;
+  font-family: "Merriweather", serif;
+}
+
 @media only screen and (max-width: 600px) {
   .links .lien {
     display: none;
