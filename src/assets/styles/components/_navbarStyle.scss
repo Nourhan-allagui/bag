@@ -75,7 +75,10 @@
 .sideBar {
   display: none;
 }
-
+.navbar-nav .nav-link.active {
+  color: #e91e63 !important;
+  font-weight: 600;
+}
 @media only screen and (max-width: 600px) {
   .links .lien {
     display: none;
@@ -88,7 +91,7 @@
     height: 100vh;
     width: 50%;
     z-index: 999;
-    background: rgba(161, 0, 0, 0.05);
+    background: rgba(115, 36, 2, 0.27);
     backdrop-filter: blur(10px);
     box-shadow: -5px 0 10px #8080801f;
     display: flex;
@@ -104,9 +107,15 @@
       a {
         width: 100%;
         display: block;
-        color: #333;
+        color: #ffffff;
         text-decoration: none;
         margin: 0 20px;
+        font-weight: 700;
+
+        &:hover {
+          color: rgb(255, 255, 255);
+          text-shadow: 2px 2px 2px #7a0c0c;
+        }
       }
     }
 
