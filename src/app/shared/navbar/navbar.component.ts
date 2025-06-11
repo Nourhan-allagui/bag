@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  isSidebarVisible = false;
 
+  showSidebar(): void {
+    this.isSidebarVisible = true;
+  }
+
+  hideSidebar(): void {
+    this.isSidebarVisible = false;
+  }
 }
