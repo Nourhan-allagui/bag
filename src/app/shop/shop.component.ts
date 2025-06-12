@@ -12,38 +12,10 @@ export class ShopComponent implements OnInit{
   rangePosition = '0%';
   selectedBag: any = null;
   currentImage: string = '';
-  selecteBagsDependsGender: any = null;
   searchTerm: string = '';
   currentGenderFilter: string | null = null;
   filteredBags: any[] = [];
-  pubImgBags = [
-    'https://cdn.mos.cms.futurecdn.net/v2/t:0,l:0,cw:3000,ch:1687,q:80,w:3000/z37mwDVckwJURH4Ho5KRYW.jpeg',
-    'https://www.kalkstore.com/cdn/shop/articles/KL_WEB_BLOG_PORTADA_4420x2400_df689793-0c08-4d64-8872-7b415597a5ac.jpg?v=1654701916&width=1500',
-    'https://hips.hearstapps.com/ell.h-cdn.co/assets/16/04/980x490/landscape-1453910197-elle-handbags-index.jpg?resize=1200:*',
-  ];
-  genderType = [
-    {
-      id: 1,
-      images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMW7VwE4hiA-F3dZpmafUui0jh92KU-u-VrQ&s',
-      name: "Women",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
-      buttons: "SHOP NOW"
-    },
-    {
-      id: 2,
-      images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvF_zdxA4pfdsSgIF9BiqtIcqIx0XJLS8xw&s',
-      name: "Men",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
-      buttons: "SHOP NOW"
-    },
-    {
-      id: 3,
-      images: 'https://www.humanium.org/fr/wp-content/uploads/2025/05/shutterstock_2267902633-scaled.jpg',
-      name: "Children",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
-      buttons: "SHOP NOW"
-    }
-  ];
+
   bags = [
     {
       id: 1,
