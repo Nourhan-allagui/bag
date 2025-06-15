@@ -11,7 +11,7 @@
     margin: 10px 0;
     display: grid;
     grid-template-columns: 25% 75%;
-    grid-template-rows: 27% 13% 60%;
+    grid-template-rows: 23% 17% 60%;
     grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
     .vitrine {
       grid-area: vitrine;
@@ -172,66 +172,6 @@
             }
           }
         }
-        .carts-thirds {
-          width: 100% !important;
-          display: flex;
-          flex-wrap: nowrap;
-          flex-direction: column;
-          justify-content: space-evenly !important;
-          align-items: flex-end !important;
-
-          ul {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-          }
-
-          .cards-fourth {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: nowrap;
-            align-items: flex-end;
-            justify-content: center;
-
-            p {
-              a {
-                font-size: 1.2rem;
-                color: #333333;
-                background: transparent;
-                border-color: lightgray;
-                margin: 0 5px;
-              }
-            }
-          }
-        }
-        .collapse {
-          width: 100%;
-          height: auto;
-          margin: 10px 0;
-
-          .card-body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            .input-group {
-              width: 100% !important;
-
-              .searchInput {
-                border: none;
-                border-bottom: 1px solid #ddd;
-              }
-            }
-
-            .btn-cards {
-              background: rgba(114, 7, 7, 0.35);
-              color: #333333;
-              width: 60px !important;
-              font-size: 10px;
-              margin: 0 10px;
-            }
-          }
-        }
         .cards-fifith {
           width: 100%;
           height: 100%;
@@ -246,40 +186,10 @@
         }
 
       }
-      @media (min-width: 601px) and (max-width: 1024px) {
-        .home-container .card-size {
-          width: 95% !important;
-        }
-        .home-container .cards-size {
-          width: 100%;
-          height: 100%;
-          margin: 40px 0;
-        }
-        .home-container .carts-thirds {
-          width: 95% !important;
-        }
-
-        .home-container .collapse {
-          width: 95% !important;
-        }
-
-        .home-container .collapse .card-body .input-group {
-          width: 95% !important;
-        }
-
-        .home-container .cards-fifith {
-          width: 95%;
-        }
-        .home-container .cards-fifith img {
-          width: 400px;
-          height: 300px !important;
-        }
-      }
     }
   }
 }
 
-// bar
 .range-wrap {
   width: 300px;
   margin: 2rem;
@@ -351,3 +261,130 @@ input[type=range] {
   }
 }
 
+
+@media only screen and (max-width: 600px) {
+  .shop-container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  .shop-content {
+    width: 90%;
+    height: 95%;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: "vitrine" "small-nav" "shop-filter " "shop-catal";
+
+    .shop-filter {
+      margin: 0;
+    }
+    .small-nav {
+      .carts-thirds {
+        width: 100% !important;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between !important;
+        align-items: flex-end !important;
+
+        ul {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .cards-fourth {
+          display: flex;
+          flex-direction: column;
+          flex-wrap: nowrap;
+          align-items: flex-end;
+          justify-content: center;
+
+          p {
+            a {
+              font-size: 1.2rem;
+              color: #333333;
+              background: transparent;
+              border-color: lightgray;
+              margin: 0 5px;
+            }
+          }
+        }
+      }
+
+      .collapse {
+        width: 100%;
+        height: auto;
+        margin: 10px 0;
+
+        .card-body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .input-group {
+            width: 100% !important;
+
+            .searchInput {
+              border: none;
+              border-bottom: 1px solid #ddd;
+            }
+          }
+
+          .btn-cards {
+            background: rgba(114, 7, 7, 0.35);
+            color: #333333;
+            width: 60px !important;
+            font-size: 10px;
+            margin: 0 10px;
+          }
+        }
+      }
+    }
+    .shop-catalogue {
+      grid-area: shop-catal;
+      max-height: 100%;
+      overflow: inherit !important;
+      margin: 20px 0;
+    }
+  }
+    .shop-content .shop-filter .accordion-button {
+      font-size: 1rem !important;
+    }
+  }
+  .range-wrap {
+    width: 250px;
+    margin: 2rem;
+    position: relative;
+  }
+}
+@media (min-width: 601px) and (max-width: 1027px) {
+  .shop-container .shop-content .shop-catalogue .cards-fifith img {
+    width: 183%;
+    height: 200px;
+  }
+  .shop-container .shop-content {
+    width: 90%;
+    height: 95%;
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: 31% 69%;
+    grid-template-rows: 27% 13% 60%;
+    grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
+  }
+  .shop-container .shop-content .shop-filter .accordion-button {
+    font-size: 1.2rem !important;
+  }
+  .shop-container .shop-content .shop-filter .accordion .accordion-item .collapse ul {
+    font-size: 1.3rem;
+    padding-left: 0;
+  }
+  .range-wrap {
+    width: 150px;
+    margin: 0.5rem;
+  }
+}
