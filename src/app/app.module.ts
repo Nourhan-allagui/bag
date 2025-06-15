@@ -3,14 +3,24 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {CommonModule} from '@angular/common';
+import {FormsModule} from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
+import {FeatureComponent} from './feature/feature.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FeatureComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    CommonModule,
+    FormsModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
