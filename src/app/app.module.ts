@@ -12,6 +12,7 @@ import { ShopComponent } from './shop/shop.component';
 import {MatTableModule} from '@angular/material/table';
 import {FeatureComponent} from './feature/feature.component';
 import {MatButtonModule} from '@angular/material/button';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import {MatButtonModule} from '@angular/material/button';
     NavbarComponent,
     HomeComponent,
     FooterComponent,
-    FeatureComponent
+    FeatureComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,

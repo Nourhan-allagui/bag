@@ -1,0 +1,151 @@
+.about-container {
+  width: 100%;
+  height: 100vh;
+  .about-content {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 250px 1fr 1fr;
+    grid-template-areas: "aboutImage" "aboutStory" "aboutMission";
+    justify-items: center;
+    .about_image{
+      width: 100%;
+      grid-area: aboutImage;
+      background: url("https://steelhorseleather.com/cdn/shop/files/Vintage_Leather_Bags_Banner_9af001cf-ef2d-4209-8e0b-c7b3445d1ef9_1920x1011.jpg") center center/cover;
+      h1 {
+        font-size: 10rem;
+        position: absolute;
+        left: 33%;
+        top: 6%;
+        color: white;
+        text-shadow: 5px 5px 10px #c1c1c1;
+        font-weight: 700;
+
+      }
+    }
+    .about_story{
+      width: 100%;
+      grid-area: aboutStory;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+      .story {
+        width: 40%;
+        margin: 0 70px;
+        h2 {
+          font-weight: 900;
+          font-style: italic;
+        }
+      }
+      .about-story-img {
+        width: 40%;
+        img {
+          border-radius: 20px;
+        }
+      }
+    }
+    .about_mission {
+      width: 100%;
+      grid-area: aboutMission;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 50px 0;
+      .about-mission-image {
+        width: 40%;
+        img {
+          border-radius: 20px;
+        }
+      }
+      .mission {
+        width: 40%;
+        margin: 0 0px;
+        padding: 0 0 0 57px;
+        h2 {
+          font-weight: 900;
+          font-style: italic;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .about-container .about-content .about_image h1 {
+    font-size: 3rem;
+    left: 34%;
+    top: 17%;
+  }
+  .about-container .about-content .about_story {
+    align-items: center;
+    margin: 30px 0;
+    flex-direction: column;
+  }
+  .about-container .about-content .about_story .story {
+    width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    text-align: justify;
+  }
+  .about-container .about-content .about_story .about-story-img {
+    width: 80%;
+  }
+  .about-container .about-content .about_mission {
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+    flex-direction: column-reverse;
+  }
+  .about-container .about-content .about_mission .mission {
+    width: 100%;
+    margin: 0;
+    padding: 0 40px;
+    text-align: justify;
+  }
+  .about-container .about-content .about_mission .about-mission-image {
+    width: 80%;
+    margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1048px) {
+  .about-container .about-content .about_story .about-story-img {
+    width: 80%;
+    display: none;
+  }
+  .about-container .about-content .about_story {
+    width: 100%;
+    grid-area: aboutStory;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+  }
+  .about-container .about-content .about_story .story {
+    width: 100%;
+    margin: 0;
+    padding: 0 65px;
+    p {
+      text-align: justify;
+    }
+  }
+  .about-container .about-content .about_mission {
+    margin: 20px 0;
+    flex-direction: column;
+  }
+  .about-container .about-content .about_mission .about-mission-image img {
+    width: 80%;
+    display: none;
+  }
+  .about-container .about-content .about_mission .mission {
+    width: 100%;
+    margin: 0;
+    padding: 0 65px;
+    p {
+      text-align: justify;
+    }
+  }
+}
