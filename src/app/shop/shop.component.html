@@ -234,7 +234,7 @@
                 <div class="modal-body">
                   <div class="images-display">
                     <img [src]="currentImage" class="img-fluid mb-3" alt="Main image">
-                    <div class="d-flex gap-2">
+                    <div class="d-flex gap-2 small-photo">
                       <img *ngFor="let thumb of selectedBag?.photos"
                            [src]="thumb"
                            class="img-thumbnail"
@@ -244,8 +244,43 @@
                     </div>
                   </div>
                   <div class="bags-details">
-                    <p class="mt-3">{{ selectedBag?.description }}</p>
-                    <p><strong>{{ selectedBag?.price | currency }}</strong></p>
+                    <h1 class="mt-3">{{ selectedBag?.name }}</h1>
+                    <h3><strong>{{ selectedBag?.price}} TND</strong></h3>
+                    <p>{{selectedBag?.description}}</p>
+                    <div class="dropdown">
+                      <label> Size :
+                      <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownSize" data-bs-toggle="dropdown" aria-expanded="false">
+                        Choose an option
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownSize">
+                        <li><button class="dropdown-item" type="button">Small</button></li>
+                        <li><button class="dropdown-item" type="button">Medium</button></li>
+                        <li><button class="dropdown-item" type="button">Big</button></li>
+                      </ul>
+                      </label>
+                    </div>
+                    <div class="dropdown">
+                      <label>Color :
+                      <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownColor" data-bs-toggle="dropdown" aria-expanded="false">
+                        Choose an option
+                      </button>
+                      <ul class="dropdown-menu" aria-labelledby="dropdownColor">
+                        <li><button class="dropdown-item" type="button">Red</button></li>
+                        <li><button class="dropdown-item" type="button">Blue</button></li>
+                        <li><button class="dropdown-item" type="button">Green</button></li>
+                      </ul>
+                      </label>
+                    </div>
+                    <div class="quantiyBags">
+                      <label>Quantity:
+                        <button class="btn" (click)="decrementNumber()">-</button>
+                        <p>{{ selectedBag?.quantity }}</p>
+                        <button class="btn" (click)="incrementNumber()">+</button>
+                      </label>
+                    </div>
+                    <div class="addButton">
+                    <button class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Total price : {{selectedBag?.quantity * selectedBag?.price}}">ADD TO CART</button>
+                    </div>
                   </div>
                 </div>
               </div>
