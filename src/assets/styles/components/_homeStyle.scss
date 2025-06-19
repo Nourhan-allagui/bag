@@ -166,6 +166,10 @@
       border-right: 2px solid black;
       padding: 0 20px;
     }
+    .big-image {
+      width: 600px;
+      height: 500px;
+    }
   .small-photo {
     img {
       width: 100px !important;
@@ -415,9 +419,9 @@
         flex-direction: row-reverse;
         border-right: none;
         flex-wrap: nowrap;
-        img {
-          width: 300px;
-          height: 300px;
+        .big-image {
+          width: 300px !important;
+          height: 500px !important;
         }
         .small-photo {
           flex-direction: column;

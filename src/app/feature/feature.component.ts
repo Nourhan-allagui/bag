@@ -55,10 +55,10 @@ export class FeatureComponent {
 
   featureResult(index: number) {
     const item = this.dataSource[index];
-    item.result = item.price * item.quantity;
+    item.result = Math.round(item.price * item.quantity * 100 )/100;
   }
 
   getTotal(): number {
-    return this.dataSource.reduce((total, item) => total + item.result, 0);
+    return Math.round(this.dataSource.reduce((total, item) => total + item.result, 0)*100)/100;
   }
 }

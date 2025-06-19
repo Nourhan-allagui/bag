@@ -140,6 +140,17 @@
           flex-direction: column;
           border-right: 2px solid black;
           padding: 0 20px;
+          .big-image {
+            width: 300px;
+            height: 300px;
+          }
+          .small-photo {
+            flex-direction: row;
+            img{
+              width: 100px !important;
+              height: 100px !important;
+            }
+          }
         }
 
         .bags-details {
@@ -187,9 +198,14 @@
     }
   }
 }
-
+.accordion-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .range-wrap {
-  width: 300px;
+
+  width: 200px;
   margin: 2rem;
   position: relative;
 }
@@ -434,7 +450,7 @@ input[type=range] {
     margin: 10px 0;
     display: grid;
     grid-template-columns: 31% 69%;
-    grid-template-rows: 27% auto 73%;
+    grid-template-rows: 20% auto 73%;
     grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
   }
   .shop-container .shop-content .shop-filter .accordion-button {
@@ -452,15 +468,17 @@ input[type=range] {
       flex-direction: row-reverse;
       border-right: none;
       flex-wrap: nowrap;
-      img {
+      .big-image {
         width: 300px;
-        height: 300px;
+        height: 500px;
       }
       .small-photo {
         flex-direction: column;
-        width: 70px;
-        height: 50px;
         margin-right: 40px;
+        img {
+          width: 70px;
+          height: 50px;
+        }
       }
     }
 
