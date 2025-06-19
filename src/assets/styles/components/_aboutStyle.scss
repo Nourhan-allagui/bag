@@ -1,9 +1,9 @@
 .about-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   .about-content {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 250px 1fr 1fr;
@@ -16,8 +16,8 @@
       h1 {
         font-size: 10rem;
         position: absolute;
-        left: 33%;
-        top: 6%;
+        left: 38%;
+        top: 16%;
         color: white;
         text-shadow: 5px 5px 10px #c1c1c1;
         font-weight: 700;
@@ -75,8 +75,8 @@
 @media only screen and (max-width: 600px){
   .about-container .about-content .about_image h1 {
     font-size: 3rem;
-    left: 34%;
-    top: 17%;
+    left: 36%;
+    top: 32%;
   }
   .about-container .about-content .about_story {
     align-items: center;
