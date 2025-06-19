@@ -1,6 +1,6 @@
 .feature-container {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -77,13 +77,14 @@
     .left-side {
       border: 2px solid black;
       background: white;
-      width: 75%;
+      width: 100%;
       height: 95%;
       padding: 0 50px;
+      margin-bottom: 20px;
       .sides {
         border: 1px solid #ddd;
-        padding: 20px;
-        height: 90%;
+        padding: 30px;
+        height: 92%;
       .first-facture {
         p:nth-child(1){
           text-align: start;
@@ -165,4 +166,86 @@
   display: flex;
   justify-content: flex-end;
   align-items: start;
+}
+
+@media only screen and (max-width: 600px) {
+  .feature-container .feature-content .feature-vitrine {
+    margin: 0;
+  }
+  .feature-container .feature-content .feature-inside .feature-table {;
+    margin: 20px 0px;
+  }
+  .feature-container .feature-content .feature-inside {
+    grid-area: feature-inside;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "feature-table "
+        " feature-fact";
+  }
+
+  .feature-container .feature-content .feature-fact .left-side {
+    border: 2px solid black;
+    background: white;
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    padding: 0 10px;
+  }
+  .feature-container .feature-content .feature-inside .feature-table .mat-mdc-row .mat-mdc-cell {
+    .increStyle {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .feature-container .feature-content .feature-inside .feature-fact {
+    margin: 0;
+    grid-area: feature-fact;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1148px) {
+  .feature-container .feature-content .feature-vitrine {
+    margin: 0;
+  }
+  .feature-container .feature-content .feature-inside .feature-table {;
+    margin: 20px 0px;
+  }
+  .feature-container .feature-content .feature-inside {
+    grid-area: feature-inside;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+        "feature-table "
+        " feature-fact";
+  }
+
+  .feature-container .feature-content .feature-fact .left-side {
+    border: 2px solid black;
+    background: white;
+    width: 100%;
+    height: auto;
+    margin: 20px 0;
+    padding: 10px 10px;
+  }
+  .feature-container .feature-content .feature-inside .feature-table .mat-mdc-row .mat-mdc-cell {
+    .increStyle {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  .feature-container .feature-content .feature-inside .feature-fact {
+    margin: 0;
+    grid-area: feature-fact;
+  }
 }
