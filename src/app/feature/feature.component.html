@@ -1,0 +1,215 @@
+<div class="feature-container">
+  <div class="feature-content">
+    <div class="feature-vitrine"></div>
+    <div class="feature-inside">
+      <div class="feature-table">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+          <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>No.</th>
+            <td mat-cell *matCellDef="let element">{{element.id}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="images">
+            <th mat-header-cell *matHeaderCellDef style="text-align: center;">PRODUCT</th>
+            <td mat-cell *matCellDef="let element" style="text-align: center;">
+              <img [src]="element.images" style="width: 100px;">
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>NAME</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="price">
+            <th mat-header-cell *matHeaderCellDef>PRICE</th>
+            <td mat-cell *matCellDef="let element">{{element.price}} TND</td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td  mat-cell *matCellDef="let element; let i = index">
+              <div class="increStyle">
+              <button class="btn" (click)="decrementNumber(i)">-</button>
+              {{element.quantity}}
+              <button class="btn" (click)="incrementNumber(i)">+</button>
+              </div>
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="result">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element">
+              {{element.result }} TND
+            </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedColumns;"
+          ></tr>
+        </table>
+        <div class="separator"></div>
+        <p style="text-align: end; background: white; padding: 0 15px; background: #faf9fd; padding: 20px;">The order costs: {{ getTotal() }} TND</p>
+      </div>
+      <div class="feature-fact">
+        <div class="left-side">
+          <p class="left-title">Cart totals</p>
+          <div class="sides">
+            <div class="first-facture">
+              <p><span class="strong">Your order</span></p>
+              <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+                <ng-container matColumnDef="name">
+                  <th mat-header-cell *matHeaderCellDef>NAME</th>
+                  <td mat-cell *matCellDef="let element">{{element.name}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="quantity">
+                  <th mat-header-cell *matHeaderCellDef> Quantity </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.quantity}}
+                  </td>
+                </ng-container>
+
+                <ng-container matColumnDef="result">
+                  <th mat-header-cell *matHeaderCellDef> Total </th>
+                  <td mat-cell *matCellDef="let element">
+                    {{element.result }} TND
+                  </td>
+                </ng-container>
+
+                <tr
+                  mat-row
+                  (click)="clickedRows.add(row)"
+                  [class.demo-row-is-clicked]="clickedRows.has(row)"
+                  *matRowDef="let row; columns: displayedFacture;"
+                ></tr>
+              </table>
+              <p><span class="strong">Subtotal:</span> <span>{{ getTotal() }} TND</span></p>
+              <div class="separatorFacture"></div>
+            </div>
+            <div class="second-facture">
+              <label>Full Name: <input type="text"></label>
+              <label>Email: <input type="text"></label>
+              <label>Adress: <input type="text"></label>
+              <label>Number: <input type="text"></label>
+              <div class="separatorFacture"></div>
+              <div class="buttons">
+                <button class="btn">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+ <!--
+    <div class="feature-table">
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>No.</th>
+          <td mat-cell *matCellDef="let element">{{element.id}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="images">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">PRODUCT</th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <img [src]="element.images" style="width: 100px;">
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>NAME</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef>PRICE</th>
+          <td mat-cell *matCellDef="let element">{{element.price}} TND</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantity">
+          <th mat-header-cell *matHeaderCellDef> Quantity </th>
+          <td mat-cell *matCellDef="let element; let i = index">
+            <button class="btn" (click)="decrementNumber(i)">-</button>
+            {{element.quantity}}
+            <button class="btn" (click)="incrementNumber(i)">+</button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="result">
+          <th mat-header-cell *matHeaderCellDef> Total </th>
+          <td mat-cell *matCellDef="let element">
+            {{element.result }} TND
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr
+          mat-row
+          (click)="clickedRows.add(row)"
+          [class.demo-row-is-clicked]="clickedRows.has(row)"
+          *matRowDef="let row; columns: displayedColumns;"
+        ></tr>
+      </table>
+      <div class="separator"></div>
+      <p style="text-align: end; background: white; padding: 0 15px; background: #faf9fd; padding: 20px;">The order costs: {{ getTotal() }} TND</p>
+    </div>
+    <div class="feature-fact">
+      <div class="left-side">
+        <p class="left-title">Cart totals</p>
+        <div class="sides">
+      <div class="first-facture">
+        <p><span class="strong">Your order</span></p>
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>NAME</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="quantity">
+            <th mat-header-cell *matHeaderCellDef> Quantity </th>
+            <td mat-cell *matCellDef="let element">
+              {{element.quantity}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="result">
+            <th mat-header-cell *matHeaderCellDef> Total </th>
+            <td mat-cell *matCellDef="let element">
+              {{element.result }} TND
+            </td>
+          </ng-container>
+
+          <tr
+            mat-row
+            (click)="clickedRows.add(row)"
+            [class.demo-row-is-clicked]="clickedRows.has(row)"
+            *matRowDef="let row; columns: displayedFacture;"
+          ></tr>
+        </table>
+        <p><span class="strong">Subtotal:</span> <span>{{ getTotal() }} TND</span></p>
+        <div class="separatorFacture"></div>
+      </div>
+        <div class="second-facture">
+            <label>Full Name: <input type="text"></label>
+            <label>Email: <input type="text"></label>
+            <label>Adress: <input type="text"></label>
+            <label>Number: <input type="text"></label>
+          <div class="separatorFacture"></div>
+          <div class="buttons">
+            <button class="btn">Place Order</button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div> -->

@@ -9,6 +9,9 @@ import {FormsModule} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { ShopComponent } from './shop/shop.component';
+import {MatTableModule} from '@angular/material/table';
+import {FeatureComponent} from './feature/feature.component';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -16,13 +19,16 @@ import { ShopComponent } from './shop/shop.component';
     ShopComponent,
     NavbarComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    FeatureComponent
   ],
   imports: [
     CommonModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatTableModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(withEventReplay())
