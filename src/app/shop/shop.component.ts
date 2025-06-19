@@ -1,6 +1,5 @@
-import {Inject, PLATFORM_ID,AfterViewInit, Component, OnInit} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 declare var bootstrap: any;
-import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-shop',
@@ -8,7 +7,7 @@ import { isPlatformBrowser } from '@angular/common';
   templateUrl: './shop.component.html',
   styleUrl: './shop.component.scss'
 })
-export class ShopComponent implements OnInit, AfterViewInit {
+export class ShopComponent implements OnInit {
   rangeValue = 0;
   rangePosition = '0%';
   selectedBag: any = null;
@@ -115,21 +114,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
     this.updatePosition();
   }
 
-  ngAfterViewInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
-      const el = document.getElementById('myToast');
-      if (el) {
-        this.toastElement = new bootstrap.Toast(el);
-      }
-    }
-    }
-
-    showToast(): void {
-      if (this.toastElement) {
-      this.toastElement.show();
-    }
-  }
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {
+  constructor() {
     this.resetFilter();
   }
 

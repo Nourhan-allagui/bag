@@ -43,7 +43,8 @@ export class HomeComponent {
       price: 49.99,
       images: ['https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg'],
       photos: ['https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg','https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg'],
-      gender: "Women"
+      gender: "Women",
+      quantity: 1
     },
     {
       id: 2,
@@ -52,7 +53,8 @@ export class HomeComponent {
       price: 59.99,
       images: ['https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346'],
       photos: ['https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346'],
-      gender: "Men"
+      gender: "Men",
+      quantity: 1
     },
     {
       id: 3,
@@ -61,7 +63,8 @@ export class HomeComponent {
       price: 49.99,
       images: ['https://static.oysho.net/6/static2/itxwebstandard/images/pespeciales/oysho/filtros092023/bolsos/bolsasDeportivas.jpg?t=20250604194005'],
       photos: [''],
-      gender: "Women"
+      gender: "Women",
+      quantity: 1
     },
     {
       id: 4,
@@ -70,7 +73,8 @@ export class HomeComponent {
       price: 59.99,
       images: ['https://m.media-amazon.com/images/I/81BCwzfdf-L._AC_UY1000_.jpg'],
       photos: [''],
-      gender: "Women"
+      gender: "Women",
+      quantity: 1
     },
     {
       id: 5,
@@ -79,7 +83,8 @@ export class HomeComponent {
       price: 49.99,
       images: ['https://d1q03ajwgi7cv2.cloudfront.net/media/catalog/category/REGENT-0022511120007487_Side.jpg'],
       photos: [''],
-      gender: "Children"
+      gender: "Children",
+      quantity: 1
     },
     {
       id: 6,
@@ -88,7 +93,8 @@ export class HomeComponent {
       price: 59.99,
       images: ['https://safaribags.com/cdn/shop/files/3_4bde5165-92cd-4305-b571-dea21fe6568e.jpg?v=1707731843'],
       photos: [''],
-      gender: "Men"
+      gender: "Men",
+      quantity: 1
     },
     {
       id: 7,
@@ -97,7 +103,8 @@ export class HomeComponent {
       price: 49.99,
       images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYXfkC3rWXCDfYxzPoOd5rSm6nyGYCKzN9A&s'],
       photos: [''],
-      gender: "Children"
+      gender: "Children",
+      quantity: 1
     },
     {
       id: 8,
@@ -106,7 +113,8 @@ export class HomeComponent {
       price: 59.99,
       images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-AEzYrAFXuMBrDWxeOF3sJzyZSj5DLcSfeQ&s'],
       photos: [''],
-      gender: "Men"
+      gender: "Men",
+      quantity: 1
     }
 
   ];
@@ -117,6 +125,16 @@ export class HomeComponent {
   searchTerm: string = '';
   currentGenderFilter: string | null = null;
   filteredBags: any[] = [];
+
+  selectedSize: string = 'Choose an option';
+  selectedColor: string = 'Choose an option';
+
+  sizeSelect(dropOption: string): void {
+    this.selectedSize = dropOption;
+  }
+  colorSelect(dropOption: string): void {
+    this.selectedColor = dropOption;
+  }
 
   constructor() {
     this.resetFilter();
@@ -174,5 +192,14 @@ export class HomeComponent {
   clearSearch() {
     this.searchTerm = '';
     this.applyFilters();
+  }
+  incrementNumber() {
+    this.selectedBag.quantity += 1;
+  }
+
+  decrementNumber() {
+    if (this.selectedBag.quantity > 0) {
+      this.selectedBag.quantity -= 1;
+    }
   }
 }
