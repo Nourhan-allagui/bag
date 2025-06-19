@@ -102,6 +102,15 @@ export class ShopComponent implements OnInit, AfterViewInit {
 
   ];
 
+  selectedSize: string = 'Choose an option';
+  selectedColor: string = 'Choose an option';
+
+  sizeSelect(dropOption: string): void {
+    this.selectedSize = dropOption;
+  }
+  colorSelect(dropOption: string): void {
+    this.selectedColor = dropOption;
+  }
   ngOnInit() {
     this.updatePosition();
   }

@@ -248,26 +248,27 @@
                     <h3><strong>{{ selectedBag?.price}} TND</strong></h3>
                     <p>{{selectedBag?.description}}</p>
                     <div class="dropdown">
-                      <label> Size :
-                      <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownSize" data-bs-toggle="dropdown" aria-expanded="false">
-                        Choose an option
-                      </button>
-                      <ul class="dropdown-menu" aria-labelledby="dropdownSize">
-                        <li><button class="dropdown-item" type="button">Small</button></li>
-                        <li><button class="dropdown-item" type="button">Medium</button></li>
-                        <li><button class="dropdown-item" type="button">Big</button></li>
-                      </ul>
+                      <label>Size:
+                        <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownSize"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                          {{ selectedSize }}
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownSize">
+                          <li><button class="dropdown-item" type="button" (click)="sizeSelect('Small')">Small</button></li>
+                          <li><button class="dropdown-item" type="button" (click)="sizeSelect('Medium')">Medium</button></li>
+                          <li><button class="dropdown-item" type="button" (click)="sizeSelect('Big')">Big</button></li>
+                        </ul>
                       </label>
                     </div>
                     <div class="dropdown">
                       <label>Color :
                       <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownColor" data-bs-toggle="dropdown" aria-expanded="false">
-                        Choose an option
+                        {{selectedColor}}
                       </button>
                       <ul class="dropdown-menu" aria-labelledby="dropdownColor">
-                        <li><button class="dropdown-item" type="button">Red</button></li>
-                        <li><button class="dropdown-item" type="button">Blue</button></li>
-                        <li><button class="dropdown-item" type="button">Green</button></li>
+                        <li><button class="dropdown-item" type="button" (click)="colorSelect('Red')">Red</button></li>
+                        <li><button class="dropdown-item" type="button" (click)="colorSelect('Blue')">Blue</button></li>
+                        <li><button class="dropdown-item" type="button" (click)="colorSelect('Green')">Green</button></li>
                       </ul>
                       </label>
                     </div>
