@@ -13,6 +13,7 @@ import {MatTableModule} from '@angular/material/table';
 import {FeatureComponent} from './feature/feature.component';
 import {MatButtonModule} from '@angular/material/button';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     FooterComponent,
     FeatureComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent
   ],
   imports: [
     CommonModule,
