@@ -42,7 +42,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Black',
       category: 'Handbags',
-      availability: true
+      availability: true,
+      result: 49.99
     },
     {
       id: 2,
@@ -55,7 +56,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Grey',
       category: 'Backpacks',
-      availability: true
+      availability: true,
+      result: 59.99
     },
     {
       id: 3,
@@ -68,7 +70,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Blue',
       category: 'Briefcases',
-      availability: true
+      availability: true,
+      result: 69.99
     },
     {
       id: 4,
@@ -81,7 +84,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Brown',
       category: 'Bucket Bags',
-      availability: true
+      availability: true,
+      result: 45.99
     },
     {
       id: 5,
@@ -94,7 +98,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 0,
       color: 'Pink',
       category: 'Charms & Pendants',
-      availability: false
+      availability: false,
+      result: 35.99
     },
     {
       id: 6,
@@ -107,7 +112,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 2,
       color: 'Black',
       category: 'Clutch Bags',
-      availability: true
+      availability: true,
+      result: 39.99
     },
     {
       id: 7,
@@ -120,7 +126,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 0,
       color: 'Yellow',
       category: 'Cross Body Bags',
-      availability: false
+      availability: false,
+      result: 49.99
     },
     {
       id: 8,
@@ -133,7 +140,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Green',
       category: 'Apparel & Accessories',
-      availability: true
+      availability: true,
+      result: 51.99
     },
     {
       id: 9,
@@ -146,7 +154,8 @@ export class ShopComponent implements OnInit, AfterViewInit {
       quantity: 1,
       color: 'Dark Brown',
       category: 'Wallets',
-      availability: true
+      availability: true,
+      result: 29.99
     }
   ];
   categoryOptions: string[] = [
