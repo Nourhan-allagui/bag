@@ -1,6 +1,6 @@
 .shop-container {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -10,7 +10,7 @@
     height: 95%;
     margin: 10px 0;
     display: grid;
-    grid-template-columns: 25% 75%;
+    grid-template-columns: 1fr auto;
     grid-template-rows: 20% auto 74%;
     grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
     .vitrine {
@@ -95,6 +95,7 @@
         background-color: transparent;
         border: none;
         border-bottom: 1px solid #ddd;
+        width: 300px;
       }
 
       .accordion-button {
@@ -200,7 +201,7 @@
 }
 .accordion-body {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .range-wrap {
@@ -290,8 +291,8 @@ input[type=range] {
     margin: 10px 0;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 0fr auto auto 1fr;
-    grid-template-areas: "vitrine" "small-nav" "shop-filter " "shop-catal";
+    grid-template-rows: auto auto 1fr;
+    grid-template-areas: "small-nav" "shop-filter " "shop-catal";
 
     .shop-filter {
       margin: 0;
@@ -438,6 +439,9 @@ input[type=range] {
     margin: 2rem;
     position: relative;
   }
+  .shop-container .shop-content .shop-filter .accordion-item {
+    width: 100%;
+  }
 }
 @media (min-width: 601px) and (max-width: 1027px) {
   .shop-container .shop-content .shop-catalogue .cards-fifith img {
@@ -449,7 +453,7 @@ input[type=range] {
     height: 95%;
     margin: 10px 0;
     display: grid;
-    grid-template-columns: 31% 69%;
+    grid-template-columns: 1fr auto;
     grid-template-rows: 20% auto 73%;
     grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
   }
@@ -528,5 +532,8 @@ input[type=range] {
   .range-wrap {
     width: 150px;
     margin: 0.5rem;
+  }
+  .shop-container .shop-content .shop-filter .accordion-item {
+    width: 200px;
   }
 }

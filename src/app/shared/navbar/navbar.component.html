@@ -9,7 +9,6 @@
         <li class="nav-item"><a class="nav-link" routerLink="/home" routerLinkActive="active" >Home</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/shop" routerLinkActive="active">Shop</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a></li>
-       <!-- <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a></li> -->
         <li class="nav-item"><a class="nav-link" routerLink="/about" routerLinkActive="active">About</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a></li>
       </ul>
@@ -24,9 +23,6 @@
         <li class="nav-item lien">
           <a class="nav-link" routerLink="/features" routerLinkActive="active">Features</a>
         </li>
-        <!-- <li class="nav-item lien">
-          <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
-        </li> -->
         <li class="nav-item lien">
           <a class="nav-link" routerLink="/about" routerLinkActive="active">About</a>
         </li>
@@ -50,10 +46,22 @@
         <input id="s" type="text" />
         <span class="sclose"><i class="fa fa-times"></i></span>
       </div>
-      <div class="search-form">
-        <span class="slens"><i class="fa-solid fa-bag-shopping"></i></span>
+      <div class="search-form position-relative d-inline-block">
+  <span class="slens" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+    <i class="fa-solid fa-bag-shopping"></i>
+  </span>
         <span class="sclose"></span>
+
+        <span
+          *ngIf="cartCount > 0"
+          class="position-relative start-20 translate-middle badge rounded-pill bg-danger notif"
+          style="z-index: 1000; bottom: 10px; font-size: 0.75rem;width: 15px;
+      height: 15px;">
+    {{ cartCount }}
+          <span class="visually-hidden">unread messages</span>
+  </span>
       </div>
+
       <div class="search-form">
         <span class="slens"><i class="fa-solid fa-heart"></i></span>
         <span class="sclose"></span>
@@ -65,3 +73,39 @@
     </div>
   </div>
 </nav>
+<div class="offcanvas offcanvas-end" style="width: 600px" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+  <div class="offcanvas-header">
+    <h5 id="offcanvasRightLabel">Cart</h5>
+    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div class="right-cart">
+      <table class="table">
+        <thead>
+        <tr>
+          <th>Images</th>
+          <th>Name</th>
+          <th>Size</th>
+          <th>Quantity</th>
+          <th>Color</th>
+          <th>Price</th>
+          <th>Total</th>
+          <th>+/-</th>
+        </tr>
+        </thead>
+        <tbody *ngFor="let cart of selectedDetails; let i = index">
+        <tr>
+          <td><img src="{{ cart.images }}" style="width: 50%"></td>
+          <td>{{ cart.name }}</td>
+          <td>{{ cart.size }}</td>
+          <td>{{ cart.quantity }}</td>
+          <td>{{ cart.color }}</td>
+          <td>{{ cart.unitPrice }} TND</td>
+          <td>{{ cart.totalPrice }} TND</td>
+          <td><button style="margin: 25% 0;" class="btn btn-danger" (click)="removeCartItem(i)">remove</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
