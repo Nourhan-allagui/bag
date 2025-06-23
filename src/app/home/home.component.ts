@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
+import {Router} from '@angular/router';
 declare var bootstrap: any;
 @Component({
   selector: 'app-home',
@@ -8,30 +9,30 @@ declare var bootstrap: any;
 })
 export class HomeComponent {
   pubImgBags = [
-      'https://cdn.mos.cms.futurecdn.net/v2/t:0,l:0,cw:3000,ch:1687,q:80,w:3000/z37mwDVckwJURH4Ho5KRYW.jpeg',
-      'https://www.kalkstore.com/cdn/shop/articles/KL_WEB_BLOG_PORTADA_4420x2400_df689793-0c08-4d64-8872-7b415597a5ac.jpg?v=1654701916&width=1500',
-      'https://hips.hearstapps.com/ell.h-cdn.co/assets/16/04/980x490/landscape-1453910197-elle-handbags-index.jpg?resize=1200:*',
+      'https://static.wixstatic.com/media/02db29_90c3cf6e03ec43f79a03988c29609ab4~mv2.jpg/v1/fill/w_980,h_735,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/9-min.jpg',
+      'https://www.crepslocker.com/cdn/shop/products/Louis-Vuitton-Monogram-Mirror-Keepall-50-Crepslocker-Front-Side-2_112d7dcd-ae5b-41cc-92aa-6bf3373ce92f.jpg?v=1642169140',
+      'https://cdn.shopify.com/s/files/1/0569/1224/8947/files/BS75A22E2_360-11.jpg?v=1725424086',
   ];
   genderType = [
     {
       id: 1,
-      images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMW7VwE4hiA-F3dZpmafUui0jh92KU-u-VrQ&s',
+      images: 'https://i.pinimg.com/736x/fa/84/c9/fa84c962084c1aff3cad810cd14097ac.jpg',
       name: "Women",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
+      description: "Spring Session",
       buttons: "SHOP NOW"
     },
     {
       id: 2,
-      images: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSBvF_zdxA4pfdsSgIF9BiqtIcqIx0XJLS8xw&s',
+      images: 'https://i.pinimg.com/474x/66/e9/40/66e940893b375d4b177af9040c062746.jpg',
       name: "Men",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
+      description: "Spring Session",
       buttons: "SHOP NOW"
     },
     {
       id: 3,
-      images: 'https://www.humanium.org/fr/wp-content/uploads/2025/05/shutterstock_2267902633-scaled.jpg',
+      images: 'https://media.istockphoto.com/id/842311786/photo/happy-small-girl.jpg?s=612x612&w=0&k=20&c=rDqbyesT0jcGAAe0SaJzuPMHT7QFaHLq8mLV92Xwhvg=',
       name: "Children",
-      description: "Discover our high-quality, stunning women's bag—perfect for this season",
+      description: "Spring Session",
       buttons: "SHOP NOW"
     }
   ];
@@ -128,6 +129,10 @@ export class HomeComponent {
 
   selectedSize: string = 'Choose an option';
   selectedColor: string = 'Choose an option';
+  @Output() addToCartEvent = new EventEmitter<number>();
+  @Output() addToCartDetails = new EventEmitter<any>();
+
+  commandCart: any[] = [];
 
   sizeSelect(dropOption: string): void {
     this.selectedSize = dropOption;
@@ -136,7 +141,7 @@ export class HomeComponent {
     this.selectedColor = dropOption;
   }
 
-  constructor() {
+  constructor(private router: Router) {
     this.resetFilter();
   }
 
@@ -201,5 +206,29 @@ export class HomeComponent {
     if (this.selectedBag.quantity > 0) {
       this.selectedBag.quantity -= 1;
     }
+  }
+  goToShop() {
+    this.router.navigate(['/shop']);
+  }
+
+  addToCart(): void {
+    if (!this.selectedBag) return;
+    const selectedDetails = {
+      name: this.selectedBag.name,
+      size: this.selectedSize,
+      images: this.selectedBag.images,
+      color: this.selectedColor,
+      quantity: this.selectedBag.quantity,
+      unitPrice: this.selectedBag.price,
+      totalPrice: this.selectedBag.price * this.selectedBag.quantity
+    };
+    this.commandCart.push(selectedDetails);
+    this.addToCartEvent.emit(1);
+    this.addToCartDetails.emit(this.commandCart);
+
+
+    this.selectedSize = 'Choose an option';
+    this.selectedColor = 'Choose an option';
+    this.selectedBag.quantity = 1;
   }
 }

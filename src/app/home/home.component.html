@@ -32,20 +32,22 @@
   </div>
 
   <div class="card-group cards-size">
-    <div class="card" *ngFor="let detail of genderType">
+    <div class="card" *ngFor="let detail of genderType" (click)="goToShop()">
       <img [src]="detail.images" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="card-title">{{detail.name}}</h5>
+        <h1 class="card-title">{{detail.name}}</h1>
         <p class="card-text">{{detail.description}}</p>
         <a href="#" class="btn btns">{{detail.buttons}}</a>
       </div>
     </div>
   </div>
-
+  <div class="smallnav">
+    <h1 class="shopTitle">Product Overview</h1>
+  </div>
   <div class="carts-thirds">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" href="#" (click)="resetFilter()">All Products</a>
+        <a class="nav-link active" aria-current="page" (click)="resetFilter()">All Products</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="filterByGender('Women')">Women</a>
@@ -57,24 +59,12 @@
         <a class="nav-link" (click)="filterByGender('Children')">Children</a>
       </li>
     </ul>
-
     <div class="cards-fourth">
     <p>
       <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample1" role="button" aria-expanded="false" aria-controls="collapseExample1" data-bs-target="#collapseExample2">
         <i class="fa-solid fa-magnifying-glass"></i> Search
       </a>
-      <a class="btn btn-primary disabled" data-bs-toggle="collapse" href="#collapseExample2" role="button" aria-expanded="false" aria-controls="collapseExample2" data-bs-target="#collapseExample1">
-        <i class="fa-solid fa-filter"></i> Filter
-      </a>
     </p>
-    </div>
-  </div>
-  <div class="collapse" id="collapseExample1">
-    <div class="card card-body">
-       soon !
-      <button class="btn btn-cards" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">
-        wait !
-      </button>
     </div>
   </div>
   <div class="collapse" id="collapseExample2">
@@ -97,12 +87,14 @@
 
   <div class="cards-fifith">
       <div class="row">
-        <div *ngFor="let bag of filteredBags" class="col-md-4 mb-3">
-          <div class="card" (click)="openModal(bag)" style="cursor: pointer;">
+        <div *ngFor="let bag of filteredBags" class="col-lg-3 col-md-4 mb-3">
+          <div class="card" (click)="openModal(bag)" style="cursor: pointer; height: 100%;">
             <img [src]="bag.images[0]" class="card-img-top" alt="{{ bag.name }}">
-            <div class="card-body">
+            <div class="card-body articleDetails">
+              <div class="detailsSide">
               <h5 class="card-title">{{ bag.name }}</h5>
               <p class="card-text">{{ bag.description }}</p>
+              </div>
               <p class="card-text">${{ bag.price }}</p>
             </div>
           </div>
@@ -164,13 +156,19 @@
                 </label>
               </div>
               <div class="addButton">
-                <button class="btn btn-success" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Total price : {{selectedBag?.quantity * selectedBag?.price}}">ADD TO CART</button>
+                <button
+                  class="btn btn-success"
+                  (click)="addToCart()"
+                  title="Total price : {{selectedBag?.quantity * selectedBag?.price}}">
+                  ADD TO CART
+                </button>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  <button type="button" class="btn more-button btn-outline-secondary">LOAD MORE</button>
+  <button type="button" class="btn more-button btn-outline-secondary" (click)="goToShop()">LOAD MORE</button>
 </div>
 </div>
