@@ -1,25 +1,20 @@
 .shop-container {
   width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+  min-height: 100vh;
   .shop-content {
-    width: 90%;
-    height: 95%;
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 20% auto 74%;
-    grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
     .vitrine {
-      grid-area: vitrine;
+      width: 100%;
+      height: 500px;
       background: url("https://miraggiolife.com/cdn/shop/files/New_Arrivals_Desktop2.jpg?v=1734856089&width=2000") center center/cover ;
-      margin-bottom: 10px;
+      object-fit: cover;
     }
     .small-nav {
-      grid-area: small-nav;
+      width: 100%;
+      padding: 30px 100px;
       .carts-thirds {
         width: 100%;
         margin: 15px 0;
@@ -88,37 +83,56 @@
         }
       }
     }
-    .shop-filter {
-      grid-area: shop-filter;
-      margin: 0 10px;
-      .accordion-item {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid #ddd;
-        width: 300px;
-      }
-
-      .accordion-button {
-        font-size: 2rem !important;
-        font-family: "Merienda", cursive;
-      }
-
-    }
     .shop-catalogue {
-      grid-area: shop-catal;
-      // max-height: 100%;
-      overflow-y: auto;
-      overflow-x: hidden;
+      display: flex;
+      padding: 0 100px;
+      .collapse {
+        width: 350px;
+        height: auto;
+        .accordion-body {
+          padding: 10px;
+          font-size: 1.2rem;
+        }
+        .card-body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .input-group {
+            width: 100% !important;
+
+            .searchInput {
+              border: none;
+              border-bottom: 1px solid #ddd;
+            }
+          }
+
+          .btn-cards {
+            background: rgba(114, 7, 7, 0.35);
+            color: #333333;
+            width: 60px !important;
+            font-size: 10px;
+            margin: 0 10px;
+          }
+        }
+      }
       .cards-fifith {
         width: 100%;
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 0;
-
+        .articleDetails {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
         img {
-          width: 183%;
-          height: 416px;
+          width: 100%;
+          height: 100%;
+          &:hover {
+            object-fit: cover;
+          }
         }
       }
       .more-button {
@@ -197,272 +211,112 @@
         }
       }
     }
+
   }
 }
-.accordion-body {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-}
-.range-wrap {
-
-  width: 200px;
-  margin: 2rem;
-  position: relative;
-}
-.range-value {
-  position: absolute;
-  top: -50%;
-
-  span {
-    width: 30px;
-    height: 24px;
-    line-height: 24px;
-    text-align: center;
-    background: #03a9f4;
-    color: #fff;
-    font-size: 12px;
-    display: block;
-    position: absolute;
-    left: 50%;
-    transform: translate(-50%, 0);
-    border-radius: 6px;
-
-    &::before {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 0;
-      border-top: 10px solid #03a9f4;
-      border-left: 5px solid transparent;
-      border-right: 5px solid transparent;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      margin-top: -1px;
-    }
-  }
-}
-input[type=range] {
-  -webkit-appearance: none;
-  margin: 20px 0;
-  width: 100%;
-
-  &:focus {
-    outline: none;
-  }
-
-  &::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 4px;
-    cursor: pointer;
-    background: #03a9f4;
-    border-radius: 25px;
-  }
-
-  &::-webkit-slider-thumb {
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background: #fff;
-    box-shadow: 0 0 4px rgba(0, 0, 0, 1);
-    cursor: pointer;
-    -webkit-appearance: none;
-    margin-top: -8px;
-  }
-
-  &:focus::-webkit-slider-runnable-track {
-    background: #03a9f4;
-  }
-}
-
-
 @media only screen and (max-width: 600px) {
   .shop-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  .shop-content {
-    width: 90%;
-    height: 95%;
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto 1fr;
-    grid-template-areas: "small-nav" "shop-filter " "shop-catal";
-
-    .shop-filter {
-      margin: 0;
-    }
-    .small-nav {
-      .carts-thirds {
-        width: 100% !important;
-        display: flex;
-        flex-wrap: nowrap;
-        flex-direction: row;
-        justify-content: space-between !important;
-        align-items: flex-end !important;
-
-        ul {
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-        }
-
-        .cards-fourth {
-          display: flex;
-          flex-direction: column;
-          flex-wrap: nowrap;
-          align-items: flex-end;
-          justify-content: center;
-
-          p {
-            a {
-              font-size: 1.2rem;
-              color: #333333;
-              background: transparent;
-              border-color: lightgray;
-              margin: 0 5px;
-            }
-          }
+    .shop-content {
+      .vitrine {
+        height: 150px;
+      }
+      .small-nav {
+        padding: 0px 5px;
+        .carts-thirds {
+          width: 100% !important;
         }
       }
-
-      .collapse {
-        width: 100%;
-        height: auto;
-        margin: 10px 0;
-
-        .card-body {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          .input-group {
-            width: 100% !important;
-
-            .searchInput {
-              border: none;
-              border-bottom: 1px solid #ddd;
-            }
-          }
-
-          .btn-cards {
-            background: rgba(114, 7, 7, 0.35);
-            color: #333333;
-            width: 60px !important;
-            font-size: 10px;
-            margin: 0 10px;
-          }
-        }
-      }
-    }
-    .shop-catalogue {
-      grid-area: shop-catal;
-      // max-height: 100%;
-      overflow: inherit !important;
-      margin: 20px 0;
-      .modal-body {
+      .shop-catalogue {
+        padding: 0 5px;
         flex-direction: column;
-        .images-display {
-          display: flex;
-          align-items: flex-start;
-          flex-direction: row-reverse;
-          border-right: none;
-          flex-wrap: nowrap;
-          img {
-            width: 200px !important;
-            height: 200px !important;
-          }
-          .small-photo {
-            flex-direction: column;
-            width: 50px;
-            height: 50px;
-            margin-right: 40px;
-          }
-        }
-
-        .bags-details {
-          border-top: 2px solid #ddd;
-          width: 100%;
-          padding: 10px 0;
-          margin: 30px 0;
-          .dropdown {
-            margin-bottom: 20px;
+        align-items: center;
+        .modal-body {
+          z-index: 1000000;
+          flex-direction: column;
+          .images-display {
             display: flex;
-            justify-content: space-around;
-            flex-direction: row;
-            align-items: center;
-            button {
-              width: 150px;
+            align-items: flex-start;
+            flex-direction: row-reverse;
+            border-right: none;
+            flex-wrap: nowrap;
+            img {
+              width: 200px !important;
+              height: 200px !important;
+            }
+            .small-photo {
+              flex-direction: column;
+              width: 50px;
+              height: 50px;
+              margin-right: 40px;
             }
           }
-          .quantiyBags {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            label {
+
+          .bags-details {
+            border-top: 2px solid #ddd;
+            width: 100%;
+            padding: 10px 0;
+            margin: 30px 0;
+            .dropdown {
+              margin-bottom: 20px;
+              display: flex;
+              justify-content: space-around;
+              flex-direction: row;
+              align-items: center;
+              button {
+                width: 150px;
+              }
+            }
+            .quantiyBags {
               display: flex;
               justify-content: center;
               align-items: center;
-              p {
-                margin-bottom: 0;
-              }
-              button{
-                margin: 0 30px;
+              label {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                p {
+                  margin-bottom: 0;
+                }
+                button{
+                  margin: 0 30px;
+                }
               }
             }
-          }
-          .addButton {
-            margin-top: 30px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            button {
-              border-radius: 23px;
-              padding: 10px 20px;
+            .addButton {
+              margin-top: 30px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              button {
+                border-radius: 23px;
+                padding: 10px 20px;
+              }
             }
           }
         }
       }
     }
   }
-    .shop-content .shop-filter .accordion-button {
-      font-size: 1rem !important;
-    }
-  }
-  .range-wrap {
-    width: 250px;
-    margin: 2rem;
-    position: relative;
-  }
-  .shop-container .shop-content .shop-filter .accordion-item {
-    width: 100%;
-  }
 }
-@media (min-width: 601px) and (max-width: 1027px) {
-  .shop-container .shop-content .shop-catalogue .cards-fifith img {
-    width: 183%;
-    height: 200px;
-  }
-  .shop-container .shop-content {
-    width: 90%;
-    height: 95%;
-    margin: 10px 0;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    grid-template-rows: 20% auto 73%;
-    grid-template-areas: "vitrine vitrine" "small-nav small-nav" "shop-filter shop-catal";
-  }
-  .shop-container .shop-content .shop-filter .accordion-button {
-    font-size: 1.2rem !important;
-  }
-  .shop-container .shop-content .shop-filter .accordion .accordion-item .collapse ul {
-    font-size: 1.3rem;
-    padding-left: 0;
+@media (min-width: 601px) and (max-width: 860px) {
+  .shop-container {
+    .shop-content {
+      .vitrine {
+        height: 300px;
+      }
+      .small-nav {
+        padding: 10px 50px;
+      }
+      .shop-catalogue {
+        padding: 0 50px;
+         .cards-fifith {
+          .row {
+            margin-right: 0 !important;
+            margin-left: 0 !important;
+          }
+        }
+      }
+    }
   }
   .shop-container .shop-content .shop-catalogue .modal-body {
     flex-direction: column;
@@ -529,11 +383,84 @@ input[type=range] {
       }
     }
   }
-  .range-wrap {
-    width: 150px;
-    margin: 0.5rem;
+}
+@media (min-width: 861px) and (max-width: 1027px) {
+  .shop-container {
+    .shop-content {
+      .vitrine {
+        height: 300px;
+      }
+      .small-nav {
+        padding: 10px 50px;
+      }
+      .shop-catalogue {
+        padding: 0 50px;
+      }
+    }
   }
-  .shop-container .shop-content .shop-filter .accordion-item {
-    width: 200px;
+  .shop-container .shop-content .shop-catalogue .modal-body {
+    flex-direction: column;
+    .images-display {
+      display: flex;
+      align-items: flex-start;
+      flex-direction: row-reverse;
+      border-right: none;
+      flex-wrap: nowrap;
+      .big-image {
+        width: 100%;
+        height: 500px;
+      }
+      .small-photo {
+        flex-direction: column;
+        margin-right: 40px;
+        img {
+          width: 70px;
+          height: 50px;
+        }
+      }
+    }
+
+    .bags-details {
+      border-top: 2px solid #ddd;
+      width: 100%;
+      padding: 10px 0;
+      margin: 30px 0;
+      .dropdown {
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: row;
+        align-items: center;
+        button {
+          width: 150px;
+        }
+      }
+      .quantiyBags {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        label {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          p {
+            margin-bottom: 0;
+          }
+          button{
+            margin: 0 30px;
+          }
+        }
+      }
+      .addButton {
+        margin-top: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        button {
+          border-radius: 23px;
+          padding: 10px 20px;
+        }
+      }
+    }
   }
 }

@@ -20,6 +20,7 @@ export class ShopComponent implements OnInit, AfterViewInit {
   inStockOnly: boolean = true;
   selectedColors: string[] = [];
   selectedCategories: string[] = [];
+  activeGender: string = 'All';
   cart: any[] = [];
   displayLimit: number = 6;
   @Output() addToCartEvent = new EventEmitter<number>();
@@ -283,12 +284,14 @@ export class ShopComponent implements OnInit, AfterViewInit {
   }
 
   filterByGender(gender: string) {
+    this.activeGender = gender;
     this.currentGenderFilter = gender;
     this.applyFilters();
   }
 
   resetFilter() {
     this.currentGenderFilter = null;
+    this.activeGender = 'All';
     this.searchTerm = '';
     this.filteredBags = [...this.bags];
   }

@@ -2,7 +2,7 @@
   width: 100%;
   position: absolute;
   top: 0;
-  z-index: 100000;
+  z-index: 1000;
 }
 .container {
   display: flex;
@@ -109,8 +109,8 @@
     right: 0;
     height: 100vh;
     width: 50%;
-    z-index: 999;
-    background: rgba(115, 36, 2, 0.27);
+    z-index: 1002;
+    background: rgb(51 51 51 / 43%);
     backdrop-filter: blur(10px);
     box-shadow: -5px 0 10px #8080801f;
     display: flex;
@@ -169,6 +169,7 @@
     display: flex;
     justify-content: space-between !important;
     max-width: 100%;
+    background: #eaeaeab8;
   }
 
   .search-form input#s {
