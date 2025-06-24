@@ -47,16 +47,16 @@
   <div class="carts-thirds">
     <ul class="nav">
       <li class="nav-item">
-        <a class="nav-link active" aria-current="page" (click)="resetFilter()">All Products</a>
+        <a class="nav-link" [class.active]="activeGender === 'All'" aria-current="page" (click)="resetFilter()">All Products</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="filterByGender('Women')">Women</a>
+        <a class="nav-link" [class.active]="activeGender === 'Women'" (click)="filterByGender('Women')">Women</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="filterByGender('Men')">Men</a>
+        <a class="nav-link" [class.active]="activeGender === 'Men'" (click)="filterByGender('Men')">Men</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" (click)="filterByGender('Children')">Children</a>
+        <a class="nav-link" [class.active]="activeGender === 'Children'" (click)="filterByGender('Children')">Children</a>
       </li>
     </ul>
     <div class="cards-fourth">

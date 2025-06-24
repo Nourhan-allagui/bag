@@ -35,7 +35,7 @@
     <div class="name-position">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link strong" aria-current="page" routerLink="/home">AKREM</a>
+          <a class="nav-link strong" aria-current="page" routerLink="/home">KABANOUVA</a>
         </li>
       </ul>
     </div>
@@ -85,10 +85,10 @@
         <tr>
           <th>Images</th>
           <th>Name</th>
-          <th>Size</th>
+          <th class="sm-display">Size</th>
           <th>Quantity</th>
-          <th>Color</th>
-          <th>Price</th>
+          <th class="sm-display" >Color</th>
+          <th class="sm-display">Price</th>
           <th>Total</th>
           <th>+/-</th>
         </tr>
@@ -97,11 +97,11 @@
         <tr>
           <td><img src="{{ cart.images }}" style="width: 50%"></td>
           <td>{{ cart.name }}</td>
-          <td>{{ cart.size }}</td>
+          <td class="sm-display">{{ cart.size }}</td>
           <td>{{ cart.quantity }}</td>
-          <td>{{ cart.color }}</td>
-          <td>{{ cart.unitPrice }} TND</td>
-          <td>{{ cart.totalPrice }} TND</td>
+          <td class="sm-display">{{ cart.color }}</td>
+          <td class="sm-display">{{ cart.unitPrice }}</td>
+          <td>{{ cart.totalPrice }}</td>
           <td><button style="margin: 25% 0;" class="btn btn-danger" (click)="removeCartItem(i)">remove</button></td>
         </tr>
         </tbody>

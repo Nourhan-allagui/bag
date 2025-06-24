@@ -129,6 +129,7 @@ export class HomeComponent {
 
   selectedSize: string = 'Choose an option';
   selectedColor: string = 'Choose an option';
+  activeGender: string = 'All';
   @Output() addToCartEvent = new EventEmitter<number>();
   @Output() addToCartDetails = new EventEmitter<any>();
 
@@ -184,12 +185,14 @@ export class HomeComponent {
   }
 
   filterByGender(gender: string) {
+    this.activeGender = gender;
     this.currentGenderFilter = gender;
     this.applyFilters();
   }
 
   resetFilter() {
     this.currentGenderFilter = null;
+    this.activeGender = 'All';
     this.searchTerm = '';
     this.filteredBags = [...this.bags];
   }
@@ -219,8 +222,8 @@ export class HomeComponent {
       images: this.selectedBag.images,
       color: this.selectedColor,
       quantity: this.selectedBag.quantity,
-      unitPrice: this.selectedBag.price,
-      totalPrice: this.selectedBag.price * this.selectedBag.quantity
+      unitPrice: (this.selectedBag.price * 100) / 100,
+      totalPrice: (this.selectedBag.price * this.selectedBag.quantity* 100) / 100
     };
     this.commandCart.push(selectedDetails);
     this.addToCartEvent.emit(1);

@@ -10,20 +10,23 @@
     align-items: center;
     .contact-image {
       width: 100%;
-      height: 30%;
-      background: url("https://www.mithika.com/assets/images/about/customer-overview.jpg") center center/cover;
+      height: 300px;
+      background: url("https://t3.ftcdn.net/jpg/06/19/32/22/360_F_619322215_Ryx2rKprssxtjksGlXCcC1L944zGSO34.jpg") center center/cover;
     }
     .contact-details {
-      width: 100%;
-      height: 70%;
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      align-items: center;
+        width: 77%;
+        height: 70%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: center;
+        box-shadow: 0 0 27px 5px #d3d3d37a;
+        border-radius: 290px 100px;
+      margin-bottom: 40px;
+
       .contact-left {
         height: 90%;
         width: 40%;
-        border: 1px solid rgba(227, 27, 27, 0.3);
         border-radius: 10px 0 0 10px;
         display: flex;
         justify-content: center;
@@ -57,12 +60,12 @@
         }
       }
       .contact-right {
-        border: 1px solid rgba(227, 27, 27, 0.3);
         border-radius: 0 10px 10px 0;
         height: 90%;
         width: 40%;
         display: flex;
         justify-content: space-around;
+        border-left: 4px solid #333;
         ul {
           display: flex;
           justify-content: center;
@@ -101,9 +104,12 @@
     height: 100%;
   }
   .contact-container .contact-content .contact-details {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    border-radius: 70px 10px;
+    padding: 20px 10px;
   }
   .contact-container .contact-content .contact-details .contact-left {
+    border-top: 3px solid #918e8e;
     width: 90%;
     h2 {
       font-size: 2rem;
@@ -135,13 +141,62 @@
   .contact-container .contact-content .contact-details .contact-right {
     height: 80%;
     width: 90%;
+    border-left: 0;
+    ul li p:nth-child(2) {
+      padding: 10px 25px;
+    }
   }
 }
-@media (min-width: 601px) and (max-width: 1040px) {
+@media (min-width: 601px) and (max-width: 870px) {
+  .contact-container .contact-content .contact-image {
+    height: 600px;
+  }
   .contact-container .contact-content .contact-details {
     height: 100%;
     flex-direction: row;
     margin: 20px 0;
+  }
+  .contact-container .contact-content .contact-details .contact-left {
+    height: 90%;
+    width: 45%;
+    justify-content: center;
+    input {
+      width: 90%;
+      margin: 10px 0;
+    }
+    textarea {
+      width: 90%;
+      margin: 10px 0;
+    }
+    button {
+      padding: 15px 0;
+      width: 90%;
+      margin: 10px 0;
+    }
+  }
+  .contact-container .contact-content .contact-details .contact-right {
+    height: 90%;
+    width: 45%;
+    ul {
+      justify-content: center;
+    }
+    ul li p:nth-child(1) {
+      padding: 0 0;
+    }
+    ul li p:nth-child(2) {
+      padding: 10px 25px;
+    }
+  }
+}
+@media (min-width: 811px) and (max-width: 1040px) {
+  .contact-container .contact-content .contact-image {
+    height: 1000px;
+  }
+  .contact-container .contact-content .contact-details {
+    height: 100%;
+    flex-direction: row;
+    margin: 20px 0;
+    border-radius: 193px 100px;
   }
   .contact-container .contact-content .contact-details .contact-left {
     height: 90%;
