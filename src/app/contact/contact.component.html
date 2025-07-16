@@ -5,9 +5,24 @@
     <div class="contact-details">
       <div class="contact-left">
         <h2>Send Us A Message</h2>
-        <input type="text" class="contact-det" placeholder="Your Email Address">
-        <textarea placeholder="How can We Help?"></textarea>
-        <button class="btn btn-light">SUBMIT</button>
+
+        <input
+          type="email"
+          class="contact-det"
+          placeholder="Your Email Address"
+          [(ngModel)]="contactForm.email"
+          name="email"
+          required
+        />
+
+        <textarea
+          placeholder="How can we help?"
+          [(ngModel)]="contactForm.message"
+          name="message"
+          required
+        ></textarea>
+
+        <button class="btn btn-light" (click)="sendEmail()">SEND</button>
       </div>
       <div class="contact-right">
         <ul>
@@ -17,11 +32,13 @@
           </li>
           <li>
             <p><i class="fa-solid fa-phone"></i><span>Lets Talk</span></p>
-            <p>+216 98 678 795</p>
+            <p><a href="https://wa.me/21698678795" target="_blank" rel="noopener noreferrer">
+              +216 98 678 795
+            </a></p>
           </li>
           <li>
             <p><i class="fa-solid fa-envelope"></i><span>Sale Support</span></p>
-            <p>Akrem.allagui gmail.com</p>
+            <p><a href="mailto:Akrem.allagui@gmail.com">Akrem.allagui&#64;gmail.com</a></p>
           </li>
         </ul>
       </div>

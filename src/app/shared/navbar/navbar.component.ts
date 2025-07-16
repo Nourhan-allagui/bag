@@ -1,4 +1,5 @@
 import {Component, Input} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -10,6 +11,8 @@ export class NavbarComponent {
   isSidebarVisible = false;
   @Input() selectedDetails: any;
 
+  constructor(private router: Router) {
+  }
   showSidebar(): void {
     this.isSidebarVisible = true;
   }
@@ -22,5 +25,8 @@ export class NavbarComponent {
   }
   get cartCount(): number {
     return this.selectedDetails?.length || 0;
+  }
+  goToPaiment(){
+    this.router.navigate(['/features']);
   }
 }
