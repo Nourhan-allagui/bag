@@ -123,31 +123,69 @@
               <h1 class="mt-3">{{ selectedBag?.name }}</h1>
               <h3><strong>{{ selectedBag?.price}} TND</strong></h3>
               <p>{{selectedBag?.description}}</p>
-              <div class="dropdown">
+              <div *ngIf="selectedBag" class="dropdown" style="margin-bottom: 1rem;">
                 <label>Size:
-                  <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownSize"
-                          data-bs-toggle="dropdown" aria-expanded="false">
-                    {{ selectedSize }}
+                  <button
+                    class="btn btn-light btn-lg dropdown-toggle"
+                    type="button"
+                    id="dropdownSize"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    [disabled]="availableSizes.length <= 1"
+                  >
+                    {{ selectedSize || 'Choose a size' }}
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownSize">
-                    <li><button class="dropdown-item" type="button" (click)="sizeSelect('Small')">Small</button></li>
-                    <li><button class="dropdown-item" type="button" (click)="sizeSelect('Medium')">Medium</button></li>
-                    <li><button class="dropdown-item" type="button" (click)="sizeSelect('Big')">Big</button></li>
+                    <ng-container *ngIf="availableSizes.length > 1; else noSizes">
+                      <li *ngFor="let size of availableSizes">
+                        <button
+                          *ngIf="size !== selectedSize"
+                          class="dropdown-item"
+                          type="button"
+                          (click)="sizeSelect(size)"
+                        >
+                          {{ size }}
+                        </button>
+                      </li>
+                    </ng-container>
+                    <ng-template #noSizes>
+                      <li class="dropdown-item disabled">No sizes available</li>
+                    </ng-template>
                   </ul>
                 </label>
               </div>
-              <div class="dropdown">
-                <label>Color :
-                  <button class="btn btn-light btn-lg dropdown-toggle" type="button" id="dropdownColor" data-bs-toggle="dropdown" aria-expanded="false">
-                    {{selectedColor}}
+              <div *ngIf="selectedBag" class="dropdown" style="margin-bottom: 1rem;">
+                <label>Color:
+                  <button
+                    class="btn btn-light btn-lg dropdown-toggle"
+                    type="button"
+                    id="dropdownColor"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    [disabled]="availableColorsForBag.length <= 1"
+                  >
+                    {{ selectedColor || 'Choose a color' }}
                   </button>
                   <ul class="dropdown-menu" aria-labelledby="dropdownColor">
-                    <li><button class="dropdown-item" type="button" (click)="colorSelect('Red')">Red</button></li>
-                    <li><button class="dropdown-item" type="button" (click)="colorSelect('Blue')">Blue</button></li>
-                    <li><button class="dropdown-item" type="button" (click)="colorSelect('Green')">Green</button></li>
+                    <ng-container *ngIf="availableColorsForBag.length > 1; else noColors">
+                      <li *ngFor="let color of availableColorsForBag">
+                        <button
+                          *ngIf="color !== selectedColor"
+                          class="dropdown-item"
+                          type="button"
+                          (click)="colorSelect(color)"
+                        >
+                          {{ color }}
+                        </button>
+                      </li>
+                    </ng-container>
+                    <ng-template #noColors>
+                      <li class="dropdown-item disabled">No colors available</li>
+                    </ng-template>
                   </ul>
                 </label>
               </div>
+
               <div class="quantiyBags">
                 <label>Quantity:
                   <button class="btn" (click)="decrementNumber()">-</button>
@@ -162,7 +200,6 @@
                   title="Total price : {{selectedBag?.quantity * selectedBag?.price}}">
                   ADD TO CART
                 </button>
-
               </div>
             </div>
           </div>

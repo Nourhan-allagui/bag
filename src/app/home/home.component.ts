@@ -45,7 +45,9 @@ export class HomeComponent {
       images: ['https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg'],
       photos: ['https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg','https://m.media-amazon.com/images/I/61GpT8+nFXL._AC_SL1008_.jpg'],
       gender: "Women",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Small', 'Medium', 'Big'],
+      colors: ['Red', 'Blue']
     },
     {
       id: 2,
@@ -55,7 +57,9 @@ export class HomeComponent {
       images: ['https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346'],
       photos: ['https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346','https://genietravel.com/cdn/shop/files/45DegreeAngle2_a8ae371a-570d-4adc-8d96-b2be68eeb941_1200x.jpg?v=1737023346'],
       gender: "Men",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Medium', 'Big'],
+      colors: ['Green', 'Blue'],
     },
     {
       id: 3,
@@ -65,7 +69,9 @@ export class HomeComponent {
       images: ['https://static.oysho.net/6/static2/itxwebstandard/images/pespeciales/oysho/filtros092023/bolsos/bolsasDeportivas.jpg?t=20250604194005'],
       photos: [''],
       gender: "Women",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Medium'],
+      colors: ['Yellow', 'Pink'],
     },
     {
       id: 4,
@@ -75,7 +81,9 @@ export class HomeComponent {
       images: ['https://m.media-amazon.com/images/I/81BCwzfdf-L._AC_UY1000_.jpg'],
       photos: [''],
       gender: "Women",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Big'],
+      colors: ['Green', 'Blue'],
     },
     {
       id: 5,
@@ -85,7 +93,8 @@ export class HomeComponent {
       images: ['https://d1q03ajwgi7cv2.cloudfront.net/media/catalog/category/REGENT-0022511120007487_Side.jpg'],
       photos: [''],
       gender: "Children",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Medium', 'Big'],
     },
     {
       id: 6,
@@ -95,7 +104,9 @@ export class HomeComponent {
       images: ['https://safaribags.com/cdn/shop/files/3_4bde5165-92cd-4305-b571-dea21fe6568e.jpg?v=1707731843'],
       photos: [''],
       gender: "Men",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Small', 'Medium', 'Big'],
+      colors: ['Yellow', 'Pink'],
     },
     {
       id: 7,
@@ -105,7 +116,9 @@ export class HomeComponent {
       images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYXfkC3rWXCDfYxzPoOd5rSm6nyGYCKzN9A&s'],
       photos: [''],
       gender: "Children",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Small', 'Big'],
+      colors: ['Yellow', 'Pink'],
     },
     {
       id: 8,
@@ -115,7 +128,9 @@ export class HomeComponent {
       images: ['https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-AEzYrAFXuMBrDWxeOF3sJzyZSj5DLcSfeQ&s'],
       photos: [''],
       gender: "Men",
-      quantity: 1
+      quantity: 1,
+      sizes: ['Small', 'Medium'],
+      colors: ['Yellow'],
     }
 
   ];
@@ -127,14 +142,16 @@ export class HomeComponent {
   currentGenderFilter: string | null = null;
   filteredBags: any[] = [];
 
-  selectedSize: string = 'Choose an option';
-  selectedColor: string = 'Choose an option';
+  selectedSize: string = 'Small';
+  selectedColor: string = 'color';
   activeGender: string = 'All';
   @Output() addToCartEvent = new EventEmitter<number>();
   @Output() addToCartDetails = new EventEmitter<any>();
 
   commandCart: any[] = [];
-
+  get availableColorsForBag(): string[] {
+    return this.selectedBag?.colors ?? [];
+  }
   sizeSelect(dropOption: string): void {
     this.selectedSize = dropOption;
   }
@@ -146,10 +163,18 @@ export class HomeComponent {
     this.resetFilter();
   }
 
+  get availableSizes(): string[] {
+    if (this.selectedBag && this.selectedBag.sizes) {
+      return this.selectedBag.sizes;
+    }
+    return ['Small', 'Medium', 'Big'];
+  }
   openModal(bag: any) {
     this.selectedBag = bag;
     this.currentImage = bag.images[0];
     const modalEl = document.getElementById('bagModal');
+    this.selectedSize = bag.sizes?.[0] || 'Small';
+    this.selectedColor = bag.colors?.[0] || '';
     const modal = new bootstrap.Modal(modalEl!);
     modal.show();
   }
@@ -229,9 +254,6 @@ export class HomeComponent {
     this.addToCartEvent.emit(1);
     this.addToCartDetails.emit(this.commandCart);
 
-
-    this.selectedSize = 'Choose an option';
-    this.selectedColor = 'Choose an option';
     this.selectedBag.quantity = 1;
   }
 }
